@@ -1,5 +1,6 @@
 package states;
 
+import lime.graphics.Image;
 import openfl.display.Sprite;
 import haxe.CallStack;
 import lime.app.Application;
@@ -120,11 +121,12 @@ class InitState extends FlxState
 		#if LUA_ALLOWED Lua.set_callbacks_function(cpp.Callable.fromStaticFunction(psychlua.CallbackHandler.call)); #end
 		Controls.instance = new Controls();
 		ClientPrefs.loadDefaultKeys();
-
+	
 		#if (linux || mac) // fix the app icon not showing up on the Linux Panel / Mac Dock
 		var icon = Image.fromFile("icon.png");
 		Lib.current.stage.window.setIcon(icon);
 		#end
+
 
 		#if html5
 		FlxG.autoPause = false;
