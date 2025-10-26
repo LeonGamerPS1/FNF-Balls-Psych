@@ -5,7 +5,7 @@ import backend.Mods;
 
 import flixel.FlxBasic;
 import flixel.graphics.FlxGraphic;
-import flash.geom.Rectangle;
+import openfl.geom.Rectangle;
 import haxe.Json;
 
 import flixel.util.FlxSpriteUtil;
@@ -315,8 +315,7 @@ class ModsMenuState extends MusicBeatState
 			if(waitingToRestart)
 			{
 				//MusicBeatState.switchState(new TitleState());
-				TitleState.initialized = false;
-				TitleState.closedState = false;
+		
 				FlxG.sound.music.fadeOut(0.3);
 				if(FreeplayState.vocals != null)
 				{

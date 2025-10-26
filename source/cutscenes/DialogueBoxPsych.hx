@@ -8,6 +8,7 @@ import cutscenes.DialogueCharacter;
 
 typedef DialogueFile = {
 	var dialogue:Array<DialogueLine>;
+		@:optional var customBoxSprites:Null<String>;
 }
 
 typedef DialogueLine = {
@@ -16,7 +17,9 @@ typedef DialogueLine = {
 	var text:Null<String>;
 	var boxState:Null<String>;
 	var speed:Null<Float>;
+
 	@:optional var sound:Null<String>;
+
 }
 
 // TO DO: Clean code? Maybe? idk
@@ -72,7 +75,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 
 		box = new FlxSprite(70, 370);
 		box.antialiasing = ClientPrefs.data.antialiasing;
-		box.frames = Paths.getSparrowAtlas('speech_bubble');
+		box.frames = Paths.getSparrowAtlas(dialogueList.customBoxSprites ?? 'speech_bubble');
 		box.scrollFactor.set();
 		box.animation.addByPrefix('normal', 'speech bubble normal', 24);
 		box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
